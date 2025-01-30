@@ -97,7 +97,10 @@
         display: flex;
         gap: 1rem;
         
+
+        
         .word-letter {
+
             display: flex;
             justify-content: center;
             align-items: center;
@@ -161,6 +164,17 @@
 
         &:hover {
             background-color: hsl(194, 79%, 25%);
+        }
+    }
+}
+
+@media (max-width: 568px) {
+    .assembly .word {
+        gap: 0.5rem;
+
+        .word-letter {
+            width: 2rem;
+            height: 2rem;
         }
     }
 }
