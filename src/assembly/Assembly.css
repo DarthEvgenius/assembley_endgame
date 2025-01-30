@@ -1,0 +1,166 @@
+.assembly {
+    --bd-rad: 0.5rem;
+    --grey-color: hsl(0, 0%, 56%);
+    --lose-color: hsl(10, 83%, 36%);
+    
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    padding-block: 2rem;
+
+    header {
+        display: grid;
+        text-align: center;
+        place-items: center;
+        gap: 1rem;
+        margin-bottom: 2rem;
+        
+        p {
+            max-width: 50%;
+            font-size: 1.5rem;
+            text-wrap: pretty;
+            color: var(--grey-color);
+        }
+    }
+
+    main {
+        display: grid;
+        gap: 2rem;
+        justify-items: center;
+        width: 100%;
+    }
+
+    .game-status {
+        padding: 0.5em 4em;
+        width: 50%;
+        display: grid;
+        place-items: center;
+        font-size: 1.25rem;
+        border-radius: var(--bd-rad);
+
+        &.firewell {
+            background-color: #7A5EA7;
+            border: 1px dashed #323232;
+            font-style: italic;
+        }
+
+        &.win {
+            background-color: hsl(156, 83%, 36%);
+        }
+
+        &.lose {
+            background-color: var(--lose-color);
+        }
+    }
+
+    .GameInfo {
+        display: grid;
+        gap: 3rem;
+        justify-items: center;
+        width: 100%;
+    }
+
+    .language-list {
+        padding: 0;
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+        max-width: 35rem;
+
+        .language-list-item {
+            position: relative;
+            border-radius: 0.3rem;
+            padding: 0.1rem 1rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            user-select: none;
+
+            &.lost::before {
+                content: "💀";
+                position: absolute;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100%;
+                width: 100%;
+                font-size: 0.85rem;
+                top: 0;
+                left: 0;
+                background-color: rgba(0, 0, 0, 0.7);
+            }
+        }
+    }
+
+    .word {
+        display: flex;
+        gap: 1rem;
+        
+        .word-letter {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-transform: uppercase;
+            font-size: 2rem;
+            font-weight: bold;
+            font-style: italic;
+            border: 1px solid var(--grey-color);
+            border-radius: var(--bd-rad);
+            width: 3rem;
+            height: 3rem;
+            background-color: var(--grey-color);
+            color: black;
+            text-shadow: 1px 1px 5px white;
+            user-select: none;
+        }
+
+        .unguessed-letter {
+            background-color: oklch(from var(--lose-color) calc(l + 0.2) c h / calc(alpha - 0.5) );
+        }
+    }
+
+    .keyboard {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+        max-width: 38rem;
+        border: 1px solid var(--grey-color);
+        border-radius: var(--bd-rad);
+        padding-block: 1em;
+        padding-inline: 2em;
+        
+        .keyboard-char {
+            text-transform: uppercase;
+            user-select: none;
+            
+            &.keyboard-char--selected {
+                background-color: oklch(80% 100% 100);
+            }
+
+            &.keyboard-char--matched {
+                background-color: oklch(40% 45% 150);
+            }
+
+        }
+    }
+
+    .new-game-btn {
+        background-color: hsl(194, 79%, 30%);
+        border: 1px solid var(--grey-color);
+        border-radius: var(--bd-rad);
+        width: 15rem;
+        height: 3rem;
+        padding: 6px 12px;
+        display: block;
+        margin-inline: auto;
+        letter-spacing: 0.1rem;
+        font-size: 1.2rem;
+        transition: background-color 200ms linear;
+
+        &:hover {
+            background-color: hsl(194, 79%, 25%);
+        }
+    }
+}
